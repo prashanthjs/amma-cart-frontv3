@@ -1,0 +1,11 @@
+{
+    "MENU": {
+        "USER": {
+            "USER-MODULE": "Users",
+            "MANAGE-USERS": "Manage Users"
+        }
+    },
+    "USERS": {
+        "TITLE": "Manage Users"
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "MENU": {
+        "USER": {
+            "USER-MODULE": "Manage Grid",
+            "SEED-PAGE": "Start Page"
+        }
+    },
+    "SEED": {
+        "TITLE": "Welcome to the triangular test page"
+    }
+}

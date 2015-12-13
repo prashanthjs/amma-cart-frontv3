@@ -1,0 +1,14 @@
+<div layout="row" layout-margin>
+  <div  flex>
+    <p>{{ammaUserGridController.message}}</p>
+  </div>
+</div>
+
+<md-tabs md-selected="currentTab">
+  <md-tab label="Player" ui-sref="triangular.admin-default.amma-user.player">
+    <div ui-view="player"></div>
+  </md-tab>
+  <md-tab label="Map" ui-sref="triangular.admin-default.amma-user.map" ng-if="tabs?tabs():true">
+    <div ui-view="map"></div>
+  </md-tab>
+</md-tabs>

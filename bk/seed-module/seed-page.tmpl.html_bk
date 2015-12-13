@@ -1,0 +1,44 @@
+<md-content class="padded-content-page">
+    <div layout="row" layout-align="center center">
+        <h2 class="md-display-3" translate>SEED.TITLE</h2>
+    </div>
+    <div class="margin-20" layout="row" layout-align="center center">
+        <ul class="seed-list">
+            <li class="md-headline" ng-repeat="test in vm.testData">
+                {{test}}
+            </li>
+        </ul>
+
+
+    </div>
+    <kendo-grid options="vm.mainGridOptions">
+      <div k-detail-template>
+      <kendo-tabstrip>
+        <ul>
+          <li class="k-state-active">Orders</li>
+          <li>Contact information</li>
+        </ul>
+        <div>
+          <div kendo-grid k-options="vm.detailGridOptions(dataItem)"></div>
+        </div>
+        <div>
+          <ul>
+            <li>Country: <input ng-model="dataItem.Country" /></li>
+            <li>City: <input ng-model="dataItem.City" /></li>
+            <li>Address: {{dataItem.Address}}</li>
+            <li>Home phone: {{dataItem.HomePhone}}</li>
+          </ul>
+        </div>
+      </kendo-tabstrip>
+    </div>
+  </kendo-grid>
+
+  <form name="ngform"
+        sf-model="modelData"
+        sf-form="form"
+        sf-schema="schema"
+        ng-submit="submitForm(ngform,modelData)"></form>
+
+  <div ng-show="ngform.$valid"><em>Form is valid</em></div>
+  <div ng-show="ngform.$invalid"><em>Form is not valid</em></div>
+</md-content>
