@@ -4,6 +4,7 @@ export function Config($stateProvider:ng.ui.IStateProvider, $urlRouterProvider:n
                        APP_LANGUAGES, triLayoutProvider, $mdThemingProvider,
                        triThemingProvider, triSkinsProvider, triSettingsProvider
   , RestangularProvider:restangular.IProvider) {
+
   // 404 & 500 pages
   $stateProvider
     .state('404', {

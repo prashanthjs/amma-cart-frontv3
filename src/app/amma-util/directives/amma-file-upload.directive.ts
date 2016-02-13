@@ -150,7 +150,7 @@ export class AmmaFileUploadController {
                 url: listUrl,
                 data: this.ammaFileData
             });
-            promise.then((response)=> {
+            promise.then((response:any)=> {
                 this.listFiles = response.data.files;
                 this.isBusy = false;
             }, (response) => {

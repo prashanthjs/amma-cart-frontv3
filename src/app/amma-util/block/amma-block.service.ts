@@ -1,28 +1,27 @@
-export interface IAmmaTab {
-  title: string;
+export interface IAmmaBlock {
+  id: string;
   templateUrl:string;
   priority?:number;
   data?:{};
 }
 
-export class AmmaTabsService {
+export class AmmaBlockService {
 
   /** @ngInject */
   constructor(private $rootScope:ng.IRootScopeService) {
   }
 
-  public getTabs(eventName:string, options:any, initTabs:IAmmaTab[]) {
-    let tabs:IAmmaTab[] = [];
-    if (initTabs) {
-      tabs = initTabs;
+  public getTabs(eventName:string, options:any, initBlocks:IAmmaBlock[]) {
+    let blocks:IAmmaBlock[] = [];
+    if (initBlocks) {
+      blocks = initBlocks;
     }
     this.$rootScope.$emit(eventName, {
-      tabs: tabs,
+      blocks: blocks,
       options: options
     });
-    console.log(tabs);
-    tabs.sort(this.sortFunc('priority'));
-    return tabs;
+    blocks.sort(this.sortFunc('priority'));
+    return blocks;
   }
 
   private sortFunc(prop) {

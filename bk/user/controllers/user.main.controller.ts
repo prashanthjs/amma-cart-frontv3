@@ -33,6 +33,7 @@ export class UserMainController {
         }
       }
     ];
+    console.log(this.tabs);
 
   }
 
@@ -51,7 +52,7 @@ export class UserMainController {
       },
       controller: 'UserCreateController',
       controllerAs: 'userCreateController',
-      fullscreen: _this.$mdMedia('sm')
+      fullscreen: _this.$mdMedia('lg')
     });
   }
 

@@ -1,0 +1,48 @@
+<div layout="column" flex layout-margin>
+
+     <div flex class="md-whiteframe-z1 " layout="column">
+         <md-toolbar class="md-default">
+             <div class="md-toolbar-tools">
+                 <md-button class="md-icon-button" aria-label="user-icon">
+                     <md-icon md-font-icon="fa fa-user"></md-icon>
+                 </md-button>
+                 <h2>
+                     <span class="md-headline" flex translate>USERS.TITLE</span>
+                     <span class= "caption" flex translate> - Manage all available</span>
+                 </h2>
+                 <md-menu>
+                     <md-button class="md-icon-button" aria-label="open menu" ng-click="$mdOpenMenu()">
+                         <md-icon md-font-icon="zmdi zmdi-more-vert"></md-icon>
+                     </md-button>
+                     <md-menu-content width="3">
+                         <md-menu-item>
+                             <md-button href="http://google.com" target="_blank">
+                                 <md-icon md-font-icon="zmdi zmdi-settings"></md-icon>
+                                 Settings
+                             </md-button>
+                         </md-menu-item>
+                         <md-menu-item>
+                             <md-button ng-click="$mdCloseMenu">
+                                 <md-icon md-font-icon="zmdi zmdi-account"></md-icon>
+                                 Profile
+                             </md-button>
+                         </md-menu-item>
+                         <md-menu-divider></md-menu-divider>
+                         <md-menu-item>
+                             <md-button ng-click="$mdCloseMenu">
+                                 <md-icon md-font-icon="zmdi zmdi-sign-in"></md-icon>
+                                 Log out
+                             </md-button>
+                         </md-menu-item>
+                     </md-menu-content>
+                 </md-menu>
+             </div>
+         </md-toolbar>
+     </div>
+
+    <div kendo-grid="userIndexController.grid" flex class="md-whiteframe-z1 " options="userIndexController.userGridOptions" k-rebind = "userIndexController.userGridOptions" >
+    </div>
+
+</div>
+
+
