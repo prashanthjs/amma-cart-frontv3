@@ -14,7 +14,7 @@ module ammaCart {
     .module('ammaCart', modulesAvailable)
     .constant('APP_LANGUAGES', AppLanguages)
     .constant('API_CONFIG', {
-      'url': 'http://localhost:5555/'
+      'url': 'http://localhost:5555'
     })
     .config(Config)
     .value('googleChartApiConfig', googleChartApiConfig)

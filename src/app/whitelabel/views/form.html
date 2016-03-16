@@ -1,0 +1,199 @@
+<section class="overlay-10 padded-content-page overflow-hidden full-height" layout="column">
+
+    <form name="whitelabelForm" novalidate>
+        <section flex layout="row">
+            <div layout="column" flex="30">
+                <md-card>
+                    <md-card-content layout="row">
+                        <div flex>Active</div>
+                        <div flex="20">
+                            <md-switch class="md-primary margin-0"
+                                       ng-model="whitelabelFormController.model.isActive"
+                                       aria-label="isActive?"/>
+                        </div>
+                    </md-card-content>
+                </md-card>
+                <md-card layout="column" flex ng-include="'app/whitelabel/views/upload.html'">
+
+                </md-card>
+            </div>
+
+            <md-card flex>
+                <h2 class="md-title left-padding ">Details</h2>
+                <md-divider></md-divider>
+                <md-card-content>
+                    <div layout="row" layout-margin>
+                        <div flex>
+                            <md-input-container class="md-block">
+                                <label for="name">Name</label>
+                                <input type="text" ng-model="whitelabelFormController.model._id" name="name"
+                                       id="name" required ng-readonly="!whitelabelFormController.isNew"/>
+                                <div ng-messages="whitelabelForm.name.$error">
+                                    <div ng-message="required">
+                                        Please enter name of the brand
+                                    </div>
+                                </div>
+                            </md-input-container>
+                            <md-input-container class="md-block">
+                                <label for="title">Title</label>
+                                <input type="text" name="title" id="title"
+                                       ng-model="whitelabelFormController.model.title" required/>
+                                <div ng-messages="whitelabelForm.title.$error">
+                                    <div ng-message="required">
+                                        Please enter title
+                                    </div>
+                                </div>
+                            </md-input-container>
+                            <md-input-container class="md-block">
+                                <label for="email">Email</label>
+                                <input type="email" name="email" id="email" required
+                                       ng-model="whitelabelFormController.model.email"/>
+                                <div ng-messages="whitelabelForm.email.$error">
+                                    <div ng-message="required">
+                                        Please enter email
+                                    </div>
+                                    <div ng-message="email">
+                                        Please enter valid email
+                                    </div>
+                                </div>
+                            </md-input-container>
+                            <md-input-container class="md-block">
+                                <label for="contactNumber">Contact Number</label>
+                                <input type="text" name="contactNumber" id="contactNumber"
+                                       ng-model="whitelabelFormController.model.contactNumber" required/>
+                                <div ng-messages="whitelabelForm.contactNumber.$error">
+                                    <div ng-message="required">
+                                        Please enter contact number
+                                    </div>
+                                </div>
+                            </md-input-container>
+                            <md-input-container class="md-block">
+                                <label for="parent">Parent Brand</label>
+                                <md-select id="parent" name="parent"
+                                           ng-model="whitelabelFormController.model.parent">
+                                    <md-option value=""></md-option>
+                                    <md-option ng-repeat="brand in whitelabelFormController.brands"
+                                               value="{{brand._id}}">
+                                        {{brand.title}}
+                                    </md-option>
+                                </md-select>
+
+                            </md-input-container>
+
+                            <md-input-container class="md-block">
+                                <label for="url">URL</label>
+                                <input type="url" name="url" id="url"
+                                       ng-model="whitelabelFormController.model.url"/>
+                                <div ng-messages="whitelabelForm.url.$error">
+                                    <div ng-message="required">
+                                        Please enter url
+                                    </div>
+                                    <div ng-message="url">
+                                        Please enter valid url
+                                    </div>
+                                </div>
+                            </md-input-container>
+
+                        </div>
+                        <md-divider vertial></md-divider>
+                        <div flex>
+                            <div layout="column">
+                                <div flex>
+                                    <md-input-container class="md-block">
+                                        <label for="addressLine1">Address Line 1</label>
+                                        <input type="text" name="addressLine1" id="addressLine1"
+                                               ng-model="whitelabelFormController.model.address.addressLine1"
+                                               required/>
+                                        <div ng-messages="whitelabelForm.addressLine1.$error">
+                                            <div ng-message="required">
+                                                Please enter address line 1
+                                            </div>
+                                        </div>
+                                    </md-input-container>
+                                    <md-input-container class="md-block">
+                                        <label for="addressLine2">Address Line 2</label>
+                                        <input type="text" name="addressLine2" id="addressLine2"
+                                               ng-model="whitelabelFormController.model.address.addressLine2"/>
+                                    </md-input-container>
+                                    <md-input-container class="md-block">
+                                        <label for="town">Town</label>
+                                        <input type="text" name="town" id="town" required
+                                               ng-model="whitelabelFormController.model.address.town"/>
+                                        <div ng-messages="whitelabelForm.town.$error">
+                                            <div ng-message="required">
+                                                Please enter town
+                                            </div>
+                                        </div>
+                                    </md-input-container>
+                                    <md-input-container class="md-block">
+                                        <label for="county">County</label>
+                                        <input type="text" name="county"
+                                               ng-model="whitelabelFormController.model.address.county"
+                                               id="county"/>
+                                    </md-input-container>
+                                    <md-input-container class="md-block">
+                                        <label for="country">Country</label>
+                                        <input type="text" name="country" id="country"
+                                               ng-model="whitelabelFormController.model.address.country"
+                                               required/>
+                                        <div ng-messages="whitelabelForm.country.$error">
+                                            <div ng-message="required">
+                                                Please enter country
+                                            </div>
+                                        </div>
+                                    </md-input-container>
+                                    <md-input-container class="md-block">
+                                        <label for="postcode">Postcode</label>
+                                        <input type="text" name="postcode" id="postcode"
+                                               ng-model="whitelabelFormController.model.address.postcode"
+                                               required/>
+                                        <div ng-messages="whitelabelForm.postcode.$error">
+                                            <div ng-message="required">
+                                                Please enter postcode
+                                            </div>
+                                        </div>
+                                    </md-input-container>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </md-card-content>
+            </md-card>
+        </section>
+        <section>
+            <md-card>
+                <h2 class="md-title left-padding ">Description</h2>
+                <md-divider></md-divider>
+                <md-card-content>
+                    <md-input-container flex class="md-block">
+                        <text-angular name="description"
+                                      ng-model="whitelabelFormController.model.description"></text-angular>
+                    </md-input-container>
+                </md-card-content>
+            </md-card>
+        </section>
+    </form>
+</section>
+<div class="bottom-right">
+
+    <md-button class="md-fab md-warn"
+               aria-label="View Whitelabel">
+        <a ui-sref="triangular.admin-default.whitelabel">
+            <md-icon md-font-icon="fa fa-table"></md-icon>
+        </a>
+    </md-button>
+    <md-button ng-if="!whitelabelFormController.isNew" class="md-fab md-accent"
+               aria-label="Manage Whitelabels">
+        <a ui-sref="triangular.admin-default.whitelabel-view({id: whitelabelFormController.model._id})">
+            <md-icon md-font-icon="fa fa-eye"></md-icon>
+        </a>
+    </md-button>
+
+    <md-button ng-click="whitelabelFormController.submit($event)"
+               ng-disabled="whitelabelForm.$invalid"
+               class="md-fab md-primary"
+               aria-label="Save Whitelabel">
+        <md-icon md-font-icon="fa fa-save"></md-icon>
+    </md-button>
+</div>

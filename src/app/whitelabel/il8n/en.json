@@ -1,0 +1,12 @@
+{
+    "MENU": {
+        "WHITELABEL": {
+            "WHITELABEL-MODULE": "Whitelabels",
+            "MANAGE-WHITELABEL": "Manage",
+            "CREATE-WHITELABEL": "Create"
+        }
+    },
+    "WHITELABELS": {
+        "TITLE": "Manage whitelabels"
+    }
+}

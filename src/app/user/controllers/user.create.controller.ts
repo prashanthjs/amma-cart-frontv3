@@ -11,6 +11,8 @@ export class UserCreateController {
         for (var i = 0; i < numberOfImages; i++) {
             this.images.push(this.randomImage('Photo ' + (i + 1)));
         }
+
+        triBreadcrumbsService.addCrumb({name:'User'});
         triBreadcrumbsService.addCrumb({name:'testing'});
     }
 

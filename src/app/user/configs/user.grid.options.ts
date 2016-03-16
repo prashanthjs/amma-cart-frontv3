@@ -28,7 +28,7 @@ export var UserGridOptions = {
       command: [{
         text: '',
         template: '<div layout="row"> ' +
-        '<md-button  class="md-fab md-mini md-primary" ng-href="/user/{{dataItem._id}}" >' +
+        '<md-button  class="md-fab md-mini md-primary" ui-href="/user/{{dataItem._id}}" >' +
         '<md-icon md-font-icon="fa fa-pencil"></md-icon>' +
         '</md-button> ' +
         '<md-button  class="md-fab md-mini md-warn" ng-click="userIndexController.deleteItem(dataItem)" >' +

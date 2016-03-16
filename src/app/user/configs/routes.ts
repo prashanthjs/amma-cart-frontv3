@@ -10,5 +10,11 @@ export var routes = {
     templateUrl: 'app/user/views/user.view.html',
     controller: 'UserViewController',
     controllerAs: 'userViewController'
+  },
+  'triangular.admin-default.user-create': {
+    url: '/users/create',
+    templateUrl: 'app/user/views/user.create.html',
+    controller: 'UserCreateController',
+    controllerAs: 'userCreateController'
   }
 };

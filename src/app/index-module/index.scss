@@ -61,6 +61,53 @@ button, select, html, textarea, input {
   z-index: 100;
 }
 
+.img-wrap {
+  position: relative;
+  display: inline-block;
+
+  font-size: 0;
+}
+.img-wrap .close {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  z-index: 100;
+  background-color: red;
+  padding: 5px 2px 2px;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  opacity: .2;
+  text-align: center;
+  font-size: 22px;
+  line-height: 10px;
+  border-radius: 50%;
+}
+
+.md-img-remove{
+  position: absolute;
+  bottom: 2px;
+  left: 2px;
+  z-index: 100;
+}
+
+.md-img-remove:hover{
+  opacity: 1;
+}
+
+md-input-container.md-block{
+  margin: 10px 0 0 !important;
+}
+
+md-autocomplete[md-floating-label] md-input-container{
+  padding-bottom: 0px !important;
+  margin: 10px 0 0 !important;
+}
+
+md-input-container > md-select{
+  margin: 1px 0 22px !important;
+}
+
 /**
  *  Do not remove this comments bellow. It's the markers used by gulp-inject to inject
  *  all your sass files automatically

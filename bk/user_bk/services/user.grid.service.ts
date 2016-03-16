@@ -14,7 +14,7 @@ export class UserGridService {
   }
 
   public restCall = (options) => {
-    const dataPromise = this.restService.getList(options.data);
+    var dataPromise = this.restService.getList(options.data);
     this.$log.debug(options);
     dataPromise.then((resp:any) => {
       var plain:any = resp.plain();
@@ -32,5 +32,6 @@ export class UserGridService {
       read: this.restCall
     }
   }
+
 
 }

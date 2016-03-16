@@ -1,0 +1,42 @@
+<div layout="column" flex ng-controller="WhitelabelCreateUploadController as uploadController" ng-init="uploadController.getToken();">
+    <div flex="2">
+        <h2 class="md-title left-padding">Logo</h2>
+        <md-divider></md-divider>
+    </div>
+    <md-card-content flex="90" layout="column">
+        <md-progress-linear md-mode="indeterminate" ng-show="uploadController.isBusy"></md-progress-linear>
+        <md-grid-list flex md-cols="6" md-cols-xs="4" md-row-height="4:3" md-gutter="4px">
+            <md-grid-tile
+                    md-rowspan="1" md-colspan="1"
+                    ng-repeat="file in uploadController.listFiles"
+                    ng-click="uploadController.openImage(file, $event)"
+                    ng-style="::{ 'background-image': 'url(' + uploadController.viewFile(file) + ')', 'background-size' : 'cover', 'cursor':'pointer' }" layout-padding="10">
+                <div class="img-wrap">
+                    <md-button class="md-icon-button md-warn md-img-remove" aria-label="More"
+                               ng-click="uploadController.deleteFile(file, $event)">
+                        <md-icon md-font-icon="zmdi zmdi-close-circle"></md-icon>
+                    </md-button>
+                </div>
+
+            </md-grid-tile>
+        </md-grid-list>
+
+    </md-card-content>
+    <div flex="1">
+        <md-divider></md-divider>
+        <div flex layout="row" layout-align="end end">
+            <md-button class="md-primary md-raised" ngf-select="uploadController.uploadFiles($files, $invalidFiles)"
+                       ngf-multiple="true" aria-label="upload" ng-disabled="uploadController.isBusy">
+                <md-icon md-font-icon
+                         ng-class="{ 'zmdi zmdi-cloud-upload': uploadController.isBusy === false, 'fa fa-spinner fa-pulse': uploadController.isBusy === true}">
+                </md-icon>
+                Upload
+            </md-button>
+            <md-button class="md-raised md-warn">
+                <md-icon md-font-icon="zmdi zmdi-refresh">
+                </md-icon>
+                Refresh
+            </md-button>
+        </div>
+    </div>
+</div>

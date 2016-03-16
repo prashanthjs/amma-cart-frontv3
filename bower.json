@@ -24,7 +24,8 @@
     "angular-schema-form": "~0.8.12",
     "angular-schema-form-material": "Textalk/angular-schema-form-material",
     "lodash": "3.10.1",
-    "angular-google-maps": "~2.3.0"
+    "angular-google-maps": "~2.3.0",
+    "async": "^1.5.2"
   },
   "devDependencies": {
     "angular-mocks": "~1.4.2"
