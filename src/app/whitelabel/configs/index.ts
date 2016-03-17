@@ -1,7 +1,7 @@
 import {menu} from './menu';
 import {route} from './route';
 /* @ngInject */
-export function Config($stateProvider:angular.ui.IStateProvider, $translatePartialLoaderProvider, triMenuProvider, RestangularProvider) {
+export function Config($stateProvider:angular.ui.IStateProvider, $translatePartialLoaderProvider, triMenuProvider) {
     $translatePartialLoaderProvider.addPart('app/whitelabel');
 
     angular.forEach(route, (route, key) => {
@@ -10,15 +10,6 @@ export function Config($stateProvider:angular.ui.IStateProvider, $translateParti
 
     angular.forEach(menu, (menu) => {
         triMenuProvider.addMenu(menu);
-    });
-
-    RestangularProvider.setRequestInterceptor(function (element, operation, route, url) {
-        if (operation === 'put' ) {
-            delete element.createdAt;
-            delete element.updatedAt;
-            delete element.internal;
-        }
-        return element;
     });
 
 }

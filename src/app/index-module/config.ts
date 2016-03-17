@@ -363,9 +363,12 @@ export function Config($stateProvider:ng.ui.IStateProvider, $urlRouterProvider:n
         if (operation === 'put') {
             delete element._links;
             delete element.__v;
-            delete element.images;
+            delete element.createdAt;
+            delete element.updatedAt;
+            delete element.internal;
         }
         return element;
     });
+
 }
 

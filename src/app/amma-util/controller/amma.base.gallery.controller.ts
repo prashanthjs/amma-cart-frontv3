@@ -1,11 +1,14 @@
-export class AmmaFileGalleryController {
+import {AmmaBaseController} from "./amma.base.controller";
+
+export class AmmaBaseGalleryController extends AmmaBaseController {
 
 
     public images = [];
     public $mdDialog;
     public currentImage;
     /* @ngInject */
-    constructor($mdDialog, images, image) {
+    constructor($mdToast, $mdDialog, images, image) {
+        super($mdToast);
         this.currentImage = image;
         this.images = images;
         this.$mdDialog = $mdDialog;
@@ -22,5 +25,4 @@ export class AmmaFileGalleryController {
         index = index - 1 < 0 ? this.images.length - 1 : index - 1;
         this.currentImage = this.images[index];
     }
-
 }

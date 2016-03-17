@@ -50,7 +50,7 @@ export const WhitelabelGridOptions = {
                 '<a ui-sref="triangular.admin-default.whitelabel-view({id: dataItem._id})"><md-icon md-font-icon="fa fa-eye"></md-icon></a>' +
                 '</md-button> ' +
                 '<md-button  class="md-fab md-mini md-accent" aria-label="Edit" >' +
-                '<a ui-sref="triangular.admin-default.whitelabel-view({id: dataItem._id})"><md-icon md-font-icon="fa fa-pencil"></md-icon></a>' +
+                '<a ui-sref="triangular.admin-default.whitelabel-edit({id: dataItem._id})"><md-icon md-font-icon="fa fa-pencil"></md-icon></a>' +
                 '</md-button> ' +
                 '<md-button  class="md-fab md-mini md-warn" ng-click="whitelabelListController.deleteItem(dataItem, $event)" aria-label="Delete">' +
                 '<md-icon md-font-icon="fa fa-times"></md-icon>' +

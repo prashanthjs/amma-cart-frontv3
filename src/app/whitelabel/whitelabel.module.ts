@@ -15,14 +15,6 @@ export module Whitelabel {
         .controller('WhitelabelUploadController', WhitelabelUploadController)
         .controller('WhitelabelFormController', WhitelabelFormController)
         .service('whitelabelGridService', WhitelabelGridService)
-        .service('whitelabelRestService', WhitelabelRestService)
-        .run(function (Restangular, $location) {
-            Restangular.setErrorInterceptor(function (resp) {
-                if (resp.status === 404) {
-                    $location.path('/404');
-                }
-                return resp;
-            });
-        });
+        .service('whitelabelRestService', WhitelabelRestService);
 
 }

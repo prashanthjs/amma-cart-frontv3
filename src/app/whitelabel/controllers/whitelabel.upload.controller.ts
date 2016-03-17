@@ -1,21 +1,11 @@
-import {AmmaFileUploadController} from "../../amma-util/controller/amma-file.upload.controller";
+import {AmmaBaseUploadController} from "../../amma-util/controller/amma.base.upload.controller";
 
-export class WhitelabelUploadController extends AmmaFileUploadController {
-
-    protected AmmaEventEmitterService;
-    protected $scope;
-
-    /* @ngInject */
-    constructor($scope, Upload, $timeout, $log:ng.ILogService, $http:ng.IHttpService, $mdToast, $mdDialog, AmmaEventEmitterService) {
-        super(Upload, $timeout, $log, $http, $mdToast, $mdDialog);
-        this.AmmaEventEmitterService = AmmaEventEmitterService;
-        this.$scope = $scope;
-    }
+export class WhitelabelUploadController extends AmmaBaseUploadController {
 
     init(id = null) {
         this.addData('id', id);
-        this.AmmaEventEmitterService.on(this.$scope, 'whitelabel-post-save', this.save);
-        this.AmmaEventEmitterService.on(this.$scope, 'whitelabel-post-create', this.save);
+        this.eventEmitter.on(this.$scope, 'whitelabel-post-save', this.save);
+        this.eventEmitter.on(this.$scope, 'whitelabel-post-create', this.save);
         if (id) {
             this.ammaFileTokenUrl = '/whitelabels/logo/prepare/{id}';
         } else {

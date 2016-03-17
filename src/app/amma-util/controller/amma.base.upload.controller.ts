@@ -1,13 +1,6 @@
-export interface IScope extends ng.IScope {
-    ammaFileUploadUrl:string;
-    ammaFileDeleteUrl?: string;
-    ammaFileTokenUrl:string;
-    ammaFileListUrl?:string;
-    ammaFileData?:{};
-    ammaFileKey?:string;
-    ammaFileViewBaseUrl?:string;
-    ammaFileSaveUrl?: string;
-}
+import {AmmaBaseController} from "./amma.base.controller";
+import {AmmaEventEmitterService} from "../services/amma.event.emitter.service";
+
 
 export interface IResponse {
     data:{
@@ -16,7 +9,7 @@ export interface IResponse {
     };
 }
 
-export class AmmaFileUploadController {
+export class AmmaBaseUploadController extends AmmaBaseController {
 
     public files:any[];
     public errorFiles:any[];
@@ -24,7 +17,7 @@ export class AmmaFileUploadController {
 
     public listFiles:any[];
 
-    public baseUrl = 'http://localhost:5555';
+    public baseUrl;
 
     public ammaFileTokenUrl = '';
     public ammaFileUploadUrl = '';
@@ -37,21 +30,24 @@ export class AmmaFileUploadController {
 
     protected Upload;
     protected $timeout;
-    protected $log:ng.ILogService;
     protected $http:ng.IHttpService;
     protected $mdToast;
     protected $mdDialog;
+    protected eventEmitter:AmmaEventEmitterService;
+    protected $scope;
 
     public data = {};
 
     /* @ngInject */
-    constructor(Upload, $timeout, $log:ng.ILogService, $http:ng.IHttpService, $mdToast, $mdDialog) {
+    constructor($scope, Upload, $timeout, $http:ng.IHttpService, $mdToast, $mdDialog, API_CONFIG, AmmaEventEmitterService) {
+        super($mdToast);
         this.Upload = Upload;
         this.$timeout = $timeout;
-        this.$log = $log;
         this.$http = $http;
-        this.$mdToast = $mdToast;
         this.$mdDialog = $mdDialog;
+        this.baseUrl = API_CONFIG.url;
+        this.eventEmitter = AmmaEventEmitterService;
+        this.$scope = $scope;
     }
 
     setData(data) {
@@ -63,7 +59,7 @@ export class AmmaFileUploadController {
     }
 
     getData(key) {
-       return this.data[key]
+        return this.data[key]
     }
 
     resolveUrl(url, extraParams = {}) {
@@ -90,12 +86,10 @@ export class AmmaFileUploadController {
         });
         promise.then((response:IResponse)=> {
             this.isBusy = false;
-            this.$log.debug(response);
             this.addData('token', response.data.token);
             this.getFiles();
         }, (response) => {
             this.displayErrorMessage('Cannot retrieve token');
-            this.$log.debug(response);
             this.isBusy = false;
             this.addData('token', '');
         });
@@ -122,13 +116,11 @@ export class AmmaFileUploadController {
                     file.result = response.data;
                     file.isBusy = false;
                     this.displaySuccessMessage('Uploaded: ' + file.name);
-                    this.$log.debug(response);
                     this.updateStatus(files);
                 });
             }, (response:any) => {
                 file.isBusy = false;
                 this.displayErrorMessage('Error: ' + file.name);
-                this.$log.debug(response);
                 this.updateStatus(files);
             }, (evt) => {
                 file.progress = Math.min(100, Math.floor(100.0 * evt.loaded / evt.total));
@@ -162,12 +154,10 @@ export class AmmaFileUploadController {
         promise.then((response:any)=> {
             this.listFiles = response.data.files;
             this.isBusy = false;
-            this.$log.debug(response);
         }, (response) => {
             this.listFiles = [];
             this.isBusy = false;
             this.displayErrorMessage('Could not get the files');
-            this.$log.debug(response);
         });
 
     };
@@ -186,10 +176,8 @@ export class AmmaFileUploadController {
             this.displaySuccessMessage('Deleted file: ' + file);
             this.isBusy = false;
             this.getFiles();
-            this.$log.debug(response);
         }, (response) => {
             this.displayErrorMessage('Error while deleting the file: ' + file);
-            this.$log.debug(response);
             this.isBusy = false;
             this.getFiles();
         });
@@ -208,14 +196,12 @@ export class AmmaFileUploadController {
         promise.then((response)=> {
 
             this.isBusy = false;
-            this.$log.debug(response);
             if (next) {
                 next();
             } else {
                 this.displaySuccessMessage('Saved files');
             }
         }, (response) => {
-            this.$log.debug(response);
             this.isBusy = false;
             if (next) {
                 next('Error while saving');
@@ -233,9 +219,9 @@ export class AmmaFileUploadController {
         const images = this.formattedFilesList();
         const image = this.formattedFile(file);
         this.$mdDialog.show({
-            controller: 'AmmaFileGalleryController',
-            controllerAs: 'ammaFileGalleryController',
-            templateUrl: 'app/amma-util/views/amma-file.gallery.html',
+            controller: 'AmmaBaseGalleryController',
+            controllerAs: 'ammaBaseGalleryController',
+            templateUrl: 'app/amma-util/views/amma.base.gallery.html',
             clickOutsideToClose: true,
             focusOnOpen: false,
             targetEvent: $event,
@@ -261,19 +247,4 @@ export class AmmaFileUploadController {
         };
     }
 
-    displayErrorMessage = (message) => {
-        this.$mdToast.show({
-            template: '<md-toast><span flex>Error: ' + message + '</span></md-toast>',
-            position: 'bottom right',
-            hideDelay: 5000
-        });
-    };
-
-    displaySuccessMessage = (message) => {
-        this.$mdToast.show({
-            template: '<md-toast><span flex>' + message + '</span></md-toast>',
-            position: 'bottom right',
-            hideDelay: 5000
-        });
-    };
 }
