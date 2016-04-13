@@ -1,0 +1,12 @@
+{
+    "MENU": {
+        "STORE": {
+            "STORE-MODULE": "Stores",
+            "MANAGE-STORE": "Manage",
+            "CREATE-STORE": "Create"
+        }
+    },
+    "STORES": {
+        "TITLE": "Manage stores"
+    }
+}

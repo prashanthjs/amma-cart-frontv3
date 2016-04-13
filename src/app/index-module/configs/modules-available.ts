@@ -26,5 +26,5 @@ export var modulesAvailable = [
     'restangular',
     'amma.util',
     'user',
-    'whitelabel'
+    'store'
 ];

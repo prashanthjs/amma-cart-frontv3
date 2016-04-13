@@ -1,0 +1,27 @@
+<div layout="row" layout-align="center center">
+    <md-menu>
+        <md-button aria-label="Open menu" class="md-fab md-mini md-primary" ng-click="$mdOpenMenu($event)">
+            <md-icon md-font-icon="zmdi zmdi-menu"></md-icon>
+        </md-button>
+        <md-menu-content width="3">
+            <md-menu-item>
+                <md-button aria-label="View" ui-sref="triangular.admin-default.user-view({id: dataItem._id})">
+                    <md-icon md-font-icon="fa fa-expand"></md-icon>
+                    View
+                </md-button>
+            </md-menu-item>
+            <md-menu-item>
+                <md-button aria-label="Edit" ui-sref="triangular.admin-default.user-edit({id: dataItem._id})">
+                    <md-icon md-font-icon="fa fa-edit"></md-icon>
+                    Edit
+                </md-button>
+            </md-menu-item>
+            <md-menu-item>
+                <md-button aria-label="Delete" ng-click="userListController.deleteItem(dataItem, $event)">
+                    <md-icon md-font-icon="fa fa-times"></md-icon>
+                    Delete
+                </md-button>
+            </md-menu-item>
+        </md-menu-content>
+    </md-menu>
+</div>

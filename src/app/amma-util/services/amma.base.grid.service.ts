@@ -21,7 +21,7 @@ export class AmmaBaseGridService {
         });
     };
 
-    protected injectRestService() {
+    injectRestService() {
         this.gridOptions.dataSource['transport'] = {
             read: this.restCall
         }

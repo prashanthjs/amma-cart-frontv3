@@ -1,8 +1,9 @@
 {
     "MENU": {
         "USER": {
-            "USER-MODULE": "Users",
-            "MANAGE-USERS": "Manage Users"
+            "USER-MODULE": "User",
+            "MANAGE-USER": "Manage",
+            "CREATE-USER": "Create"
         }
     },
     "USERS": {

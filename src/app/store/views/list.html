@@ -1,0 +1,21 @@
+<section class="overlay-10 padded-content-page overflow-hidden full-height" layout="column">
+
+    <md-toolbar class="toolbar-default margin-bottom-30">
+        <div class="md-toolbar-tools">
+            <h2>
+                <span>Manage Stores</span>
+            </h2>
+        </div>
+    </md-toolbar>
+
+    <div kendo-grid="storeListController.grid" flex class="md-whiteframe-z1 "
+         options="storeListController.gridOptions" k-rebind="storeListController.gridOptions">
+    </div>
+
+    <div class="bottom-right">
+        <md-button class="md-fab md-warn"
+                   aria-label="Create Store" ui-sref="triangular.admin-default.store-create">
+            <md-icon md-font-icon="zmdi zmdi-plus"></md-icon>
+        </md-button>
+    </div>
+</section>

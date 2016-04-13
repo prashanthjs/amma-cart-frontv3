@@ -88,8 +88,12 @@ md-autocomplete[md-floating-label] md-input-container{
   margin: 10px 0 0 !important;
 }
 
-md-input-container > md-select{
+md-input-container > md-select, md-input-container > md-datepicker{
   margin: 1px 0 22px !important;
+}
+
+md-input-container label{
+ font-weight: normal;
 }
 
 /**

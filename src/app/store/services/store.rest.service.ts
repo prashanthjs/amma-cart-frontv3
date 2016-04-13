@@ -1,16 +1,16 @@
 import {AmmaBaseRestService} from "../../amma-util/services/amma.base.rest.service";
 
-export class UserRestService extends AmmaBaseRestService {
+export class StoreRestService extends AmmaBaseRestService {
 
     /** @ngInject */
     constructor(Restangular, AmmaEventEmitterService, $q) {
-        this.endPoint = 'users';
-        this.eventName = 'user';
+        this.endPoint = 'stores';
+        this.eventName = 'store';
         super(Restangular, AmmaEventEmitterService, $q);
     }
 
-    getProfilePics(id) {
-        return this.restService.one(id).one('profile-pic').get();
+    getImages(id) {
+        return this.restService.one(id).one('images').get();
     }
 
 }

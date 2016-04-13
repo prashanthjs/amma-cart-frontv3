@@ -27,16 +27,14 @@ export class AmmaBaseListController extends AmmaBaseController {
             this.restService.removeById(dataItem._id).then((response)=> {
                 this.displaySuccessMessage('Removed Successfully');
                 this.grid.dataSource.read();
+            }, (response) => {
+                this.displayErrorMessage('Error: '+ response);
             });
-        }, (response) => {
-            this.displayErrorMessage('Error: '+ response);
         });
     }
 
     getDeleteItemTitle(dataItem) {
-        return 'Would you like to delete ' + dataItem._id + ' ?';
+        return 'Would you like to delete ' + dataItem._id + '?';
     }
 
 }
-
-

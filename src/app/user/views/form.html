@@ -1,0 +1,206 @@
+<section class="overlay-10 padded-content-page overflow-hidden full-height" layout="column">
+
+    <form name="userForm" novalidate>
+        <section layout="row" layout-align="end center">
+            <md-card flex="20">
+                <md-card-content layout="row">
+                    <div flex>Status</div>
+                    <div flex="20">
+                        <md-switch class="md-primary margin-0"
+                                   ng-model="userFormController.model.isActive"
+                                   aria-label="isActive?"/>
+                    </div>
+                </md-card-content>
+            </md-card>
+        </section>
+        <section flex layout="row">
+            <md-card flex>
+                <h2 class="md-title left-padding ">Details</h2>
+                <md-divider></md-divider>
+                <md-card-content>
+                    <div layout="row" layout-margin>
+                        <div flex>
+                            <md-input-container class="md-block">
+                                <label>Username</label>
+                                <input type="text" ng-model="userFormController.model._id" name="username"
+                                       required ng-readonly="!userFormController.isNew"/>
+                                <div ng-messages="userForm.username.$error">
+                                    <div ng-message="required">
+                                        Please enter user name of the brand
+                                    </div>
+                                </div>
+                            </md-input-container>
+                            <md-input-container class="md-block">
+                                <label>First Name</label>
+                                <input type="text" name="firstName"
+                                       ng-model="userFormController.model.name.firstName" required/>
+                                <div ng-messages="userForm.firstName.$error">
+                                    <div ng-message="required">
+                                        Please enter the first name
+                                    </div>
+                                </div>
+                            </md-input-container>
+                            <md-input-container class="md-block">
+                                <label>Last Name</label>
+                                <input type="text" name="lastName"
+                                       ng-model="userFormController.model.name.lastName" required/>
+                                <div ng-messages="userForm.lastName.$error">
+                                    <div ng-message="required">
+                                        Please enter the last name
+                                    </div>
+                                </div>
+                            </md-input-container>
+                            <md-input-container class="md-block" ng-if="userFormController.isNew">
+                                <label >Password</label>
+                                <input type="password" name="password"
+                                       ng-model="userFormController.model.password"/>
+                                <div ng-messages="userForm.password.$error">
+                                    <div ng-message="required">
+                                        Please enter the password
+                                    </div>
+                                </div>
+                            </md-input-container>
+                            <md-input-container class="md-block">
+                                <label>Email</label>
+                                <input type="email" name="email" required
+                                       ng-model="userFormController.model.email"/>
+                                <div ng-messages="userForm.email.$error">
+                                    <div ng-message="required">
+                                        Please enter email
+                                    </div>
+                                    <div ng-message="email">
+                                        Please enter valid email
+                                    </div>
+                                </div>
+                            </md-input-container>
+
+
+                            <md-input-container class="md-block">
+                                <label>Gender</label>
+                                <md-select ng-model="userFormController.model.gender" name="gender" required>
+                                    <md-option value="male">Male</md-option>
+                                    <md-option value="female">Female</md-option>
+                                    <md-option value="other">Other</md-option>
+                                </md-select>
+                                <div ng-messages="userForm.gender.$error">
+                                    <div ng-message="required">
+                                        Please select gender
+                                    </div>
+                                </div>
+                            </md-input-container>
+
+                            <div class="md-block">
+                                <md-datepicker name="dob" ng-model="userFormController.model.dob" md-placeholder="Enter dob"
+                                               required md-max-date="userFormController.maxDob" flex=""></md-datepicker>
+                            </div>
+                        </div>
+                        <md-divider vertical></md-divider>
+                        <div flex>
+                            <div layout="column">
+                                <div flex>
+                                    <md-input-container class="md-block">
+                                        <label >Address Line 1</label>
+                                        <input type="text" name="addressLine1"
+                                               ng-model="userFormController.model.address.addressLine1"
+                                               required/>
+                                        <div ng-messages="userForm.addressLine1.$error">
+                                            <div ng-message="required">
+                                                Please enter address line 1
+                                            </div>
+                                        </div>
+                                    </md-input-container>
+                                    <md-input-container class="md-block">
+                                        <label >Address Line 2</label>
+                                        <input type="text" name="addressLine2"
+                                               ng-model="userFormController.model.address.addressLine2"/>
+                                    </md-input-container>
+                                    <md-input-container class="md-block">
+                                        <label>Town</label>
+                                        <input type="text" name="town" required
+                                               ng-model="userFormController.model.address.town"/>
+                                        <div ng-messages="userForm.town.$error">
+                                            <div ng-message="required">
+                                                Please enter town
+                                            </div>
+                                        </div>
+                                    </md-input-container>
+                                    <md-input-container class="md-block">
+                                        <label >County</label>
+                                        <input type="text" name="county"
+                                               ng-model="userFormController.model.address.county"
+                                              />
+                                    </md-input-container>
+                                    <md-input-container class="md-block">
+                                        <label>Country</label>
+                                        <input type="text" name="country"
+                                               ng-model="userFormController.model.address.country"
+                                               required/>
+                                        <div ng-messages="userForm.country.$error">
+                                            <div ng-message="required">
+                                                Please enter country
+                                            </div>
+                                        </div>
+                                    </md-input-container>
+                                    <md-input-container class="md-block">
+                                        <label >Postcode</label>
+                                        <input type="text" name="postcode"
+                                               ng-model="userFormController.model.address.postcode"
+                                               required/>
+                                        <div ng-messages="userForm.postcode.$error">
+                                            <div ng-message="required">
+                                                Please enter postcode
+                                            </div>
+                                        </div>
+                                    </md-input-container>
+                                    <md-input-container class="md-block">
+                                        <label>Contact Number</label>
+                                        <input type="text" name="contactNumber"
+                                               ng-model="userFormController.model.contactNumber" required/>
+                                        <div ng-messages="userForm.contactNumber.$error">
+                                            <div ng-message="required">
+                                                Please enter contact number
+                                            </div>
+                                        </div>
+                                    </md-input-container>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </md-card-content>
+            </md-card>
+        </section>
+        <section>
+            <md-card layout="column" flex ng-include="'app/user/views/upload.html'"></md-card>
+        </section>
+        <section>
+            <md-card>
+                <h2 class="md-title left-padding ">Notes</h2>
+                <md-divider></md-divider>
+                <md-card-content>
+                    <md-input-container flex class="md-block">
+                        <text-angular name="notes"
+                                      ng-model="userFormController.model.notes"></text-angular>
+                    </md-input-container>
+                </md-card-content>
+            </md-card>
+        </section>
+    </form>
+</section>
+<div class="bottom-right">
+
+    <md-button class="md-fab md-warn"
+               aria-label="View User" ui-sref="triangular.admin-default.user">
+            <md-icon md-font-icon="fa fa-table"></md-icon>
+    </md-button>
+    <md-button ng-if="!userFormController.isNew" class="md-fab md-accent"
+               aria-label="Manage Users" ui-sref="triangular.admin-default.user-view({id: userFormController.model._id})">
+            <md-icon md-font-icon="fa fa-eye"></md-icon>
+    </md-button>
+
+    <md-button ng-click="userFormController.submit($event)"
+               ng-disabled="userForm.$invalid"
+               class="md-fab md-primary"
+               aria-label="Save User">
+        <md-icon md-font-icon="fa fa-save"></md-icon>
+    </md-button>
+</div>

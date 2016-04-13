@@ -24,7 +24,9 @@ export class AmmaBaseFormController extends AmmaBaseController {
             this.model = response;
             this.afterSubmit();
         }, (error:any)=> {
-            this.displayErrorMessage(error.data.message);
+
+            console.log(error);
+            this.displayErrorMessage(error);
         });
     }
 

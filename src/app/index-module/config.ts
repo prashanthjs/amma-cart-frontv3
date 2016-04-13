@@ -3,7 +3,7 @@ export function Config($stateProvider:ng.ui.IStateProvider, $urlRouterProvider:n
                        ChartJsProvider, $translateProvider, $translatePartialLoaderProvider,
                        APP_LANGUAGES, triLayoutProvider, $mdThemingProvider,
                        triThemingProvider, triSkinsProvider, triSettingsProvider
-    , RestangularProvider:restangular.IProvider) {
+    , RestangularProvider:restangular.IProvider, $mdDateLocaleProvider) {
 
     // 404 & 500 pages
     $stateProvider
@@ -369,6 +369,15 @@ export function Config($stateProvider:ng.ui.IStateProvider, $urlRouterProvider:n
         }
         return element;
     });
+
+    $mdDateLocaleProvider.formatDate = function(date) {
+        return moment(date).format('DD/MM/YYYY');
+    };
+
+    $mdDateLocaleProvider.parseDate = function(dateString) {
+        var m = moment(dateString, 'DD/MM/YYYY', true);
+        return m.isValid() ? m.toDate() : new Date(NaN);
+    };
 
 }
 

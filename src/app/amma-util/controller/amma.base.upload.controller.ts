@@ -204,9 +204,9 @@ export class AmmaBaseUploadController extends AmmaBaseController {
         }, (response) => {
             this.isBusy = false;
             if (next) {
-                next('Error while saving');
+                next(response.data.message);
             } else {
-                this.displayErrorMessage('Error while saving');
+                this.displayErrorMessage(response.data.message);
             }
         });
     }

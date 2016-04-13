@@ -1,24 +1,20 @@
-import {UserConfig} from './user.config';
-import {UserIndexController} from './controllers/user.index.controller';
-import {UserViewController} from './controllers/user.view.controller';
-import {UserCreateController} from './controllers/user.create.controller';
-import {UserGridService} from './services/user.grid.service';
-import {UserRestService} from './services/user.rest.service';
-import {AmmaEventEmitterService} from './services/amma.event.emitter.service';
-
+import {Config} from './configs/index';
+import {UserRestService} from "./services/user.rest.service";
+import {UserGridService} from "./services/user.grid.service";
+import {UserFormController} from "./controllers/user.form.controller";
+import {UserUploadController} from "./controllers/user.upload.controller";
+import {UserListController} from "./controllers/user.list.controller";
+import {UserViewController} from "./controllers/user.view.controller";
 
 export module User {
     angular
         .module('user', ['kendo.directives', 'restangular', 'amma.util'])
-        .config(UserConfig)
-        .controller('UserIndexController', UserIndexController)
+        .config(Config)
         .controller('UserViewController', UserViewController)
-        .controller('UserCreateController', UserCreateController)
-        .service('UserGridService', UserGridService)
-     //   .service('AmmaEventEmitterService', AmmaEventEmitterService)
-        .factory('UserRestService', function (Restangular) {
-            console.log(Restangular.all('users'));
-            return Restangular.service('users');
-        });
+        .controller('UserListController', UserListController)
+        .controller('UserUploadController', UserUploadController)
+        .controller('UserFormController', UserFormController)
+        .service('userGridService', UserGridService)
+        .service('userRestService', UserRestService);
 
 }

@@ -1,0 +1,197 @@
+<section class="overlay-10 padded-content-page overflow-hidden full-height" layout="column" flex>
+    <section layout="row" layout="row" layout-align="end center">
+
+        <md-card flex="20">
+            <md-card-content layout="row" layou-align="center center" >
+                <div flex>Status</div>
+                <div flex="20">
+                    <md-switch class="md-primary margin-0"
+                               ng-model="storeViewController.model.isActive"
+                               aria-label="isActive?" ng-disabled="true"/>
+                </div>
+            </md-card-content>
+        </md-card>
+    </section>
+    <section flex layout="row">
+        <md-card flex>
+            <h2 class="md-title left-padding ">Details</h2>
+            <md-divider></md-divider>
+            <md-card-content>
+                <div layout="row" layout-margin>
+                    <div flex>
+                        <md-list layout="column" flex>
+                            <md-list-item layout="row">
+                                <div class="md-body-1" flex>Name</div>
+                                <div class="md-list-item-text" flex>
+                                    <div class="md-body-2">{{storeViewController.model._id}}</div>
+                                </div>
+                            </md-list-item>
+                            <md-divider></md-divider>
+
+                            <md-list-item layout="row">
+                                <div class="md-body-1" flex>Title</div>
+                                <div class="md-list-item-text" flex>
+                                    <div class="md-body-2">{{storeViewController.model.title}}</div>
+                                </div>
+                            </md-list-item>
+                            <md-divider></md-divider>
+
+                            <md-list-item layout="row">
+                                <div class="md-body-1" flex>Email</div>
+                                <div class="md-list-item-text" flex>
+                                    <div class="md-body-2">{{storeViewController.model.email}}</div>
+                                </div>
+                            </md-list-item>
+                            <md-divider></md-divider>
+
+                            <md-list-item layout="row">
+                                <div class="md-body-1" flex>Contact Number</div>
+                                <div class="md-list-item-text" flex>
+                                    <div class="md-body-2">{{storeViewController.model.contactNumber}}</div>
+                                </div>
+                            </md-list-item>
+                            <md-divider></md-divider>
+
+                            <md-list-item layout="row">
+                                <div class="md-body-1" flex>Parent Brand</div>
+                                <div class="md-list-item-text" flex>
+                                    <div class="md-body-2">{{storeViewController.model.parent}}</div>
+                                </div>
+                            </md-list-item>
+                            <md-divider></md-divider>
+
+                            <md-list-item layout="row">
+                                <div class="md-body-1" flex>URL</div>
+                                <div class="md-list-item-text" flex>
+                                    <div class="md-body-2"><a ng-if="storeViewController.model.website"
+                                                              ng-href="{{storeViewController.model.website}}"
+                                                              target="_blank">{{storeViewController.model.website}}</a>
+                                    </div>
+                                </div>
+                            </md-list-item>
+                            <md-divider></md-divider>
+
+                        </md-list>
+                    </div>
+                    <md-divider vertial></md-divider>
+                    <div flex>
+                        <div layout="column">
+                            <div flex>
+                                <md-list layout="column" flex>
+                                    <md-list-item layout="row">
+                                        <div class="md-body-1" flex>Address Line 1</div>
+                                        <div class="md-list-item-text" flex>
+                                            <div class="md-body-2">
+                                                {{storeViewController.model.address.addressLine1}}
+                                            </div>
+                                        </div>
+                                    </md-list-item>
+                                    <md-divider></md-divider>
+
+                                    <md-list-item layout="row">
+                                        <div class="md-body-1" flex>Address Line 2</div>
+                                        <div class="md-list-item-text" flex>
+                                            <div class="md-body-2">
+                                                {{storeViewController.model.address.addressLine2}}
+                                            </div>
+                                        </div>
+                                    </md-list-item>
+                                    <md-divider></md-divider>
+
+                                    <md-list-item layout="row">
+                                        <div class="md-body-1" flex>Town</div>
+                                        <div class="md-list-item-text" flex>
+                                            <div class="md-body-2">{{storeViewController.model.address.town}}
+                                            </div>
+                                        </div>
+                                    </md-list-item>
+                                    <md-divider></md-divider>
+
+                                    <md-list-item layout="row">
+                                        <div class="md-body-1" flex>County</div>
+                                        <div class="md-list-item-text" flex>
+                                            <div class="md-body-2">
+                                                {{storeViewController.model.address.county}}
+                                            </div>
+                                        </div>
+                                    </md-list-item>
+                                    <md-divider></md-divider>
+
+                                    <md-list-item layout="row">
+                                        <div class="md-body-1" flex>Country</div>
+                                        <div class="md-list-item-text" flex>
+                                            <div class="md-body-2">
+                                                {{storeViewController.model.address.country}}
+                                            </div>
+                                        </div>
+                                    </md-list-item>
+                                    <md-divider></md-divider>
+
+                                    <md-list-item layout="row">
+                                        <div class="md-body-1" flex>Postcode</div>
+                                        <div class="md-list-item-text" flex>
+                                            <div class="md-body-2">
+                                                {{storeViewController.model.address.postcode}}
+                                            </div>
+                                        </div>
+                                    </md-list-item>
+                                    <md-divider></md-divider>
+
+                                </md-list>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </md-card-content>
+        </md-card>
+    </section>
+    <section>
+        <md-card layout="column" flex>
+            <div flex="2">
+                <h2 class="md-title left-padding">Images</h2>
+                <md-divider></md-divider>
+            </div>
+            <md-card-content flex="90" layout="column">
+                <md-grid-list flex md-cols="9" md-cols-xs="9" md-row-height="4:3" md-gutter="10px">
+                    <md-grid-tile
+                            md-rowspan="1" md-colspan="1"
+                            ng-repeat="image in storeViewController.images"
+                            ng-click="storeViewController.openImage(image, $event)"
+                            ng-style="::{ 'background-image': 'url(' + storeViewController.getUrl(image) + ')', 'background-size' : 'cover', 'cursor':'pointer' }"
+                            layout-padding="10">
+                    </md-grid-tile>
+                </md-grid-list>
+            </md-card-content>
+        </md-card>
+    </section>
+    <section>
+        <md-card>
+            <h2 class="md-title left-padding ">Description</h2>
+            <md-divider></md-divider>
+            <md-card-content>
+                <md-input-container flex class="md-block">
+                    <div ng-if="storeViewController.model.description"
+                         ng-bind-html="storeViewController.model.description"></div>
+                    <div ng-if="!storeViewController.model.description">No description available</div>
+                </md-input-container>
+            </md-card-content>
+        </md-card>
+    </section>
+
+</section>
+
+<div class="bottom-right">
+    <md-button class="md-fab md-warn"
+               aria-label="Create Store" ui-sref="triangular.admin-default.store-create">
+        <md-icon md-font-icon="zmdi zmdi-plus"></md-icon>
+    </md-button>
+    <md-button class="md-fab md-accent"
+               aria-label="View Stores"  ui-sref="triangular.admin-default.store">
+            <md-icon md-font-icon="fa fa-table"></md-icon>
+    </md-button>
+    <md-button class="md-fab md-primary"
+               aria-label="Edit Store" ui-sref="triangular.admin-default.store-edit({id: storeViewController.model._id})">
+            <md-icon md-font-icon="zmdi zmdi-edit"></md-icon>
+    </md-button>
+
+</div>

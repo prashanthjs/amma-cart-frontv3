@@ -1,0 +1,23 @@
+<section class="overlay-10 padded-content-page overflow-hidden full-height" layout="column">
+
+    <md-toolbar class="toolbar-default margin-bottom-30">
+        <div class="md-toolbar-tools">
+            <h2>
+                <span>Manage Users</span>
+            </h2>
+        </div>
+    </md-toolbar>
+
+    <div kendo-grid="userListController.grid" flex class="md-whiteframe-z1 "
+         options="userListController.gridOptions" k-rebind="userListController.gridOptions">
+    </div>
+
+
+
+</section>
+<div class="bottom-right">
+    <md-button class="md-fab md-warn"
+               aria-label="Create Store" ui-sref="triangular.admin-default.user-create">
+        <md-icon md-font-icon="zmdi zmdi-plus"></md-icon>
+    </md-button>
+</div>
