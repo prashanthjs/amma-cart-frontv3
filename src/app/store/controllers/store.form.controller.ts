@@ -17,6 +17,6 @@ export class StoreFormController extends AmmaBaseFormController {
         } else {
             this.displaySuccessMessage('Store has been saved successfully');
         }
-        this.$state.go('triangular.admin-default.store');
+        this.$state.go('amma.admin-default.store');
     }
 }

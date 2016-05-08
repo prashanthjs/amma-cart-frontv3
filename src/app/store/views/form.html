@@ -4,6 +4,16 @@
         <section layout="row" layout-align="end center">
             <md-card flex="20">
                 <md-card-content layout="row">
+                    <div flex>Is Locked</div>
+                    <div flex="20">
+                        <md-switch class="md-primary margin-0"
+                                   ng-model="storeFormController.model.isLocked"
+                                   aria-label="isActive?"/>
+                    </div>
+                </md-card-content>
+            </md-card>
+            <md-card flex="20">
+                <md-card-content layout="row">
                     <div flex>Status</div>
                     <div flex="20">
                         <md-switch class="md-primary margin-0"
@@ -72,7 +82,7 @@
                                 <md-select name="parent"
                                            ng-model="storeFormController.model.parent">
                                     <md-option value=""></md-option>
-                                    <md-option ng-repeat="brand in storeFormController.brands"
+                                    <md-option ng-repeat="brand in storeFormController.brands" ng-if="storeFormController.isNew || storeFormController.model._id != brand._id"
                                                value="{{brand._id}}">
                                         {{brand.title}}
                                     </md-option>
@@ -200,12 +210,12 @@
 </section>
 <div class="bottom-right">
     <md-button class="md-fab md-warn"
-               aria-label="View Store" ui-sref="triangular.admin-default.store">
+               aria-label="View Store" ui-sref="amma.admin-default.store">
         <md-icon md-font-icon="fa fa-table"></md-icon>
     </md-button>
 
     <md-button ng-if="!storeFormController.isNew" class="md-fab md-accent"
-               ui-sref="triangular.admin-default.store-view({id: storeFormController.model._id})"
+               ui-sref="amma.admin-default.store-view({id: storeFormController.model._id})"
                aria-label="Manage Stores">
 
         <md-icon md-font-icon="fa fa-eye"></md-icon>

@@ -8,7 +8,7 @@ export class AmmaBaseController {
 
     displayErrorMessage(message) {
         this.$mdToast.show({
-            template: '<md-toast><span flex>Error: ' + message + '</span></md-toast>',
+            template: '<md-toast class="md-toast error">' + message + '</md-toast>',
             position: 'bottom right',
             hideDelay: 5000
         });
@@ -16,7 +16,7 @@ export class AmmaBaseController {
 
     displaySuccessMessage(message) {
         this.$mdToast.show({
-            template: '<md-toast><span flex>' + message + '</span></md-toast>',
+            template: '<md-toast class="md-toast success">' + message + '</md-toast>',
             position: 'bottom right',
             hideDelay: 5000
         });

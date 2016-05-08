@@ -5,18 +5,18 @@
         </md-button>
         <md-menu-content width="3">
             <md-menu-item>
-                <md-button aria-label="View" ui-sref="triangular.admin-default.store-view({id: dataItem._id})">
+                <md-button aria-label="View" ui-sref="amma.admin-default.store-view({id: dataItem._id})">
                     <md-icon md-font-icon="fa fa-expand"></md-icon>
                     View
                 </md-button>
             </md-menu-item>
             <md-menu-item>
-                <md-button aria-label="Edit" ui-sref="triangular.admin-default.store-edit({id: dataItem._id})">
+                <md-button aria-label="Edit" ui-sref="amma.admin-default.store-edit({id: dataItem._id})">
                     <md-icon md-font-icon="fa fa-edit"></md-icon>
                     Edit
                 </md-button>
             </md-menu-item>
-            <md-menu-item>
+            <md-menu-item ng-if="!dataItem.isLocked">
                 <md-button aria-label="Delete" ng-click="storeListController.deleteItem(dataItem, $event)">
                     <md-icon md-font-icon="fa fa-times"></md-icon>
                     Delete

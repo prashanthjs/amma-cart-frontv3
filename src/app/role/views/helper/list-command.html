@@ -1,0 +1,12 @@
+<div layout="row" layout-align="center center">
+
+
+        <md-button aria-label="Edit" class="md-fab md-mini md-primary" ng-click="roleListController.openForm(dataItem, $event)">
+            <md-icon md-font-icon="fa fa-edit"></md-icon>
+        </md-button>
+
+        <md-button ng-if="!dataItem.isLocked" aria-label="Delete" class="md-fab md-mini md-warn" ng-click="roleListController.deleteItem(dataItem, $event)">
+            <md-icon md-font-icon="fa fa-times"></md-icon>
+        </md-button>
+
+</div>

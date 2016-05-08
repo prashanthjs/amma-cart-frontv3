@@ -4,6 +4,16 @@
         <section layout="row" layout-align="end center">
             <md-card flex="20">
                 <md-card-content layout="row">
+                    <div flex>Is Locked?</div>
+                    <div flex="20">
+                        <md-switch class="md-primary margin-0"
+                                   ng-model="userFormController.model.isLocked"
+                                   aria-label="isLocked?"/>
+                    </div>
+                </md-card-content>
+            </md-card>
+            <md-card flex="20">
+                <md-card-content layout="row">
                     <div flex>Status</div>
                     <div flex="20">
                         <md-switch class="md-primary margin-0"
@@ -26,7 +36,7 @@
                                        required ng-readonly="!userFormController.isNew"/>
                                 <div ng-messages="userForm.username.$error">
                                     <div ng-message="required">
-                                        Please enter user name of the brand
+                                        Please enter user name
                                     </div>
                                 </div>
                             </md-input-container>
@@ -51,12 +61,28 @@
                                 </div>
                             </md-input-container>
                             <md-input-container class="md-block" ng-if="userFormController.isNew">
-                                <label >Password</label>
+                                <label>Password</label>
                                 <input type="password" name="password"
                                        ng-model="userFormController.model.password"/>
-                                <div ng-messages="userForm.password.$error">
+                                <div ng-messages="userForm.password.$error" ng-if="userForm.newPassword.$dirty" ng-messages-multiple="ng-messages-multiple">
                                     <div ng-message="required">
                                         Please enter the password
+                                    </div>
+                                    <div ng-message="passwordMatch">
+                                        Your passwords did not match
+                                    </div>
+                                </div>
+                            </md-input-container>
+                            <md-input-container class="md-block" ng-if="userFormController.isNew">
+                                <label>Re-enter Password</label>
+                                <input type="password" name="confirmPassword" ng-model="userFormController.model.internal.confirmPassword"
+                                        match-password="password" />
+                                <div ng-messages="userForm.confirmPassword.$error">
+                                    <div ng-message="required">
+                                        Please enter the password
+                                    </div>
+                                    <div ng-message="passwordMatch">
+                                        Your passwords did not match
                                     </div>
                                 </div>
                             </md-input-container>
@@ -88,18 +114,51 @@
                                     </div>
                                 </div>
                             </md-input-container>
+                            <md-input-container class="md-block">
+                                <label>Stores</label>
+                                <md-select name="stores"
+                                           ng-model="userFormController.model.stores" required multiple>
+                                    <md-option ng-repeat="store in userFormController.stores"
+                                               value="{{store._id}}">
+                                        {{store._id}}
+                                    </md-option>
+                                </md-select>
+                                <div ng-messages="userForm.stores.$error">
+                                    <div ng-message="required">
+                                        Please select stores
+                                    </div>
+                                </div>
+                            </md-input-container>
 
                             <div class="md-block">
-                                <md-datepicker name="dob" ng-model="userFormController.model.dob" md-placeholder="Enter dob"
+                                <md-datepicker name="dob" ng-model="userFormController.model.dob"
+                                               md-placeholder="Enter dob"
                                                required md-max-date="userFormController.maxDob" flex=""></md-datepicker>
                             </div>
+
+
                         </div>
                         <md-divider vertical></md-divider>
                         <div flex>
                             <div layout="column">
                                 <div flex>
                                     <md-input-container class="md-block">
-                                        <label >Address Line 1</label>
+                                        <label>Role</label>
+                                        <md-select name="role"
+                                                   ng-model="userFormController.model.role" required>
+                                            <md-option ng-repeat="role in userFormController.roles"
+                                                       value="{{role._id}}">
+                                                {{role._id}}
+                                            </md-option>
+                                        </md-select>
+                                        <div ng-messages="userForm.role.$error">
+                                            <div ng-message="required">
+                                                Please select role
+                                            </div>
+                                        </div>
+                                    </md-input-container>
+                                    <md-input-container class="md-block">
+                                        <label>Address Line 1</label>
                                         <input type="text" name="addressLine1"
                                                ng-model="userFormController.model.address.addressLine1"
                                                required/>
@@ -110,7 +169,7 @@
                                         </div>
                                     </md-input-container>
                                     <md-input-container class="md-block">
-                                        <label >Address Line 2</label>
+                                        <label>Address Line 2</label>
                                         <input type="text" name="addressLine2"
                                                ng-model="userFormController.model.address.addressLine2"/>
                                     </md-input-container>
@@ -125,10 +184,10 @@
                                         </div>
                                     </md-input-container>
                                     <md-input-container class="md-block">
-                                        <label >County</label>
+                                        <label>County</label>
                                         <input type="text" name="county"
                                                ng-model="userFormController.model.address.county"
-                                              />
+                                        />
                                     </md-input-container>
                                     <md-input-container class="md-block">
                                         <label>Country</label>
@@ -142,7 +201,7 @@
                                         </div>
                                     </md-input-container>
                                     <md-input-container class="md-block">
-                                        <label >Postcode</label>
+                                        <label>Postcode</label>
                                         <input type="text" name="postcode"
                                                ng-model="userFormController.model.address.postcode"
                                                required/>
@@ -189,12 +248,13 @@
 <div class="bottom-right">
 
     <md-button class="md-fab md-warn"
-               aria-label="View User" ui-sref="triangular.admin-default.user">
-            <md-icon md-font-icon="fa fa-table"></md-icon>
+               aria-label="View User" ui-sref="amma.admin-default.user">
+        <md-icon md-font-icon="fa fa-table"></md-icon>
     </md-button>
     <md-button ng-if="!userFormController.isNew" class="md-fab md-accent"
-               aria-label="Manage Users" ui-sref="triangular.admin-default.user-view({id: userFormController.model._id})">
-            <md-icon md-font-icon="fa fa-eye"></md-icon>
+               aria-label="Manage Users"
+               ui-sref="amma.admin-default.user-view({id: userFormController.model._id})">
+        <md-icon md-font-icon="fa fa-eye"></md-icon>
     </md-button>
 
     <md-button ng-click="userFormController.submit($event)"

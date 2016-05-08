@@ -1,7 +1,7 @@
 import {AmmaBaseController} from "./amma.base.controller";
 
 export class AmmaBaseViewController extends AmmaBaseController {
-    public model = {};
+    public model:any = {};
     public images = {};
     public imageUrl;
     public baseUrl;

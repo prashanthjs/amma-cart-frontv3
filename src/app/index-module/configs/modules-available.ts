@@ -8,6 +8,7 @@ export var modulesAvailable = [
     'ngMessages',
     'ngMaterial',
     'ui.router',
+    'ngPassword',
     'pascalprecht.translate',
     'LocalStorageModule',
     'googlechart',
@@ -25,6 +26,9 @@ export var modulesAvailable = [
     'schemaForm',
     'restangular',
     'amma.util',
+    'auth',
     'user',
-    'store'
+    'store',
+    'category',
+    'role'
 ];

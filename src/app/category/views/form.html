@@ -1,0 +1,116 @@
+<section class="overlay-10 padded-content-page overflow-hidden full-height" layout="column">
+
+    <form name="categoryForm" novalidate>
+        <section layout="row" layout-align="end center">
+            <md-card flex="20">
+                <md-card-content layout="row">
+                    <div flex>Status</div>
+                    <div flex="20">
+                        <md-switch class="md-primary margin-0"
+                                   ng-model="categoryFormController.model.isActive"
+                                   aria-label="isActive?"/>
+                    </div>
+                </md-card-content>
+            </md-card>
+        </section>
+        <section flex layout="row">
+            <md-card flex>
+                <h2 class="md-title left-padding ">Details</h2>
+                <md-divider></md-divider>
+                <md-card-content>
+                    <div layout="row" layout-margin>
+                        <div flex>
+                            <md-input-container class="md-block">
+                                <label>Name</label>
+                                <input type="text" ng-model="categoryFormController.model._id" name="name"
+                                       required ng-readonly="!categoryFormController.isNew"/>
+                                <div ng-messages="categoryForm.name.$error" md-auto-hide="false"
+                                     ng-show="categoryForm.name.$touched">
+                                    <div ng-message="required">
+                                        Please enter name of the brand
+                                    </div>
+                                </div>
+                            </md-input-container>
+                            <md-input-container class="md-block">
+                                <label>Title</label>
+                                <input type="text" name="title"
+                                       ng-model="categoryFormController.model.title" required/>
+                                <div ng-messages="categoryForm.title.$error" md-auto-hide="false"
+                                     ng-show="categoryForm.title.$touched">
+                                    <div ng-message="required">
+                                        Please enter title
+                                    </div>
+                                </div>
+                            </md-input-container>
+                        </div>
+                        <md-divider vertial></md-divider>
+                        <div flex>
+                            <div layout="column">
+                                <div flex>
+                                    <md-input-container class="md-block">
+                                        <label>Parent Category</label>
+                                        <md-select name="parentCategory"
+                                                   ng-model="categoryFormController.model.parentCategory">
+                                            <md-option value=""></md-option>
+                                            <md-option ng-repeat="category in categoryFormController.categories"
+                                                       value="{{category._id}}">
+                                                {{category.title}}
+                                            </md-option>
+                                        </md-select>
+                                        <div ng-messages="categoryForm.parentCategory.$error" md-auto-hide="false"
+                                             ng-show="categoryForm.parentCategory.$touched">
+                                        </div>
+
+                                    </md-input-container>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </md-card-content>
+            </md-card>
+        </section>
+        <section>
+            <md-card layout="column" flex ng-include="'app/category/views/upload.html'">
+
+            </md-card>
+        </section>
+        <section>
+            <md-card>
+                <h2 class="md-title left-padding ">Description</h2>
+                <md-divider></md-divider>
+                <md-card-content>
+                    <md-input-container flex class="md-block">
+                        <text-angular name="description"
+                                      ng-model="categoryFormController.model.description"></text-angular>
+                        <div ng-messages="categoryForm.description.$error" md-auto-hide="false"
+                             ng-show="categoryForm.description.$touched">
+                        </div>
+                    </md-input-container>
+                </md-card-content>
+            </md-card>
+        </section>
+    </form>
+</section>
+<div class="bottom-right">
+    <md-button class="md-fab md-warn"
+               aria-label="View Category" ui-sref="amma.admin-default.category">
+        <md-icon md-font-icon="fa fa-table"></md-icon>
+    </md-button>
+
+    <md-button ng-if="!categoryFormController.isNew" class="md-fab md-accent"
+               ui-sref="amma.admin-default.category-view({id: categoryFormController.model._id})"
+               aria-label="Manage Categories">
+
+        <md-icon md-font-icon="fa fa-eye"></md-icon>
+
+    </md-button>
+
+
+    <md-button ng-click="categoryFormController.submit($event)"
+               ng-disabled="categoryForm.$invalid"
+               class="md-fab md-primary"
+               aria-label="Save Category">
+        <md-icon md-font-icon="fa fa-save"></md-icon>
+    </md-button>
+</div>

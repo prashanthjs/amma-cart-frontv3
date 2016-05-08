@@ -2,6 +2,16 @@
     <section layout="row" layout="row" layout-align="end center">
         <md-card flex="20">
             <md-card-content layout="row" layou-align="center center" >
+                <div flex>Is Locked</div>
+                <div flex="20">
+                    <md-switch class="md-primary margin-0"
+                               ng-model="userViewController.model.isLocked"
+                               aria-label="isLocked?" ng-disabled="true"/>
+                </div>
+            </md-card-content>
+        </md-card>
+        <md-card flex="20">
+            <md-card-content layout="row" layou-align="center center" >
                 <div flex>Status</div>
                 <div flex="20">
                     <md-switch class="md-primary margin-0"
@@ -189,15 +199,19 @@
 </section>
 <div class="bottom-right">
     <md-button class="md-fab md-warn"
-               aria-label="Create User" ui-sref="triangular.admin-default.user-create">
+               aria-label="Create User" ui-sref="amma.admin-default.user-create">
         <md-icon md-font-icon="zmdi zmdi-plus"></md-icon>
     </md-button>
     <md-button class="md-fab md-accent"
-               aria-label="View Users" ui-sref="triangular.admin-default.user">
+               aria-label="View Users" ui-sref="amma.admin-default.user">
             <md-icon md-font-icon="fa fa-table"></md-icon>
     </md-button>
+    <md-button class="md-fab md-warn md-hue-2"
+               aria-label="Change password" ng-click="userViewController.changePassword($event)">
+        <md-icon md-font-icon="zmdi zmdi-lock"></md-icon>
+    </md-button>
     <md-button class="md-fab md-primary"
-               aria-label="Edit User" ui-sref="triangular.admin-default.user-edit({id: userViewController.model._id})">
+               aria-label="Edit User" ui-sref="amma.admin-default.user-edit({id: userViewController.model._id})">
             <md-icon md-font-icon="zmdi zmdi-edit"></md-icon>
     </md-button>
 </div>

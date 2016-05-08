@@ -1,11 +1,11 @@
 export const route = {
-    'triangular.admin-default.store': {
+    'amma.admin-default.store': {
         url: '/stores',
         templateUrl: 'app/store/views/list.html',
         controller: 'StoreListController',
         controllerAs: 'storeListController'
     },
-    'triangular.admin-default.store-create': {
+    'amma.admin-default.store-create': {
         url: '/stores/create',
         templateUrl: 'app/store/views/form.html',
         controller: 'StoreFormController',
@@ -19,7 +19,7 @@ export const route = {
             }
         }
     },
-    'triangular.admin-default.store-edit': {
+    'amma.admin-default.store-edit': {
         url: '/stores/:id/edit',
         templateUrl: 'app/store/views/form.html',
         controller: 'StoreFormController',
@@ -40,7 +40,7 @@ export const route = {
             }
         }
     },
-    'triangular.admin-default.store-view': {
+    'amma.admin-default.store-view': {
         url: '/stores/:id/view',
         templateUrl: 'app/store/views/view.html',
         controller: 'StoreViewController',

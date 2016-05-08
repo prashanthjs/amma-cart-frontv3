@@ -1,0 +1,12 @@
+{
+    "MENU": {
+        "ROLE": {
+            "ROLE-MODULE": "Role",
+            "MANAGE-ROLE": "Manage",
+            "CREATE-ROLE": "Create"
+        }
+    },
+    "ROLES": {
+        "TITLE": "Manage Roles"
+    }
+}

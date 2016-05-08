@@ -1,0 +1,12 @@
+{
+    "MENU": {
+        "CATEGORY": {
+            "CATEGORY-MODULE": "Categories",
+            "MANAGE-CATEGORY": "Manage",
+            "CREATE-CATEGORY": "Create"
+        }
+    },
+    "CATEGORIES": {
+        "TITLE": "Manage Categories"
+    }
+}

@@ -13,4 +13,8 @@ export class UserRestService extends AmmaBaseRestService {
         return this.restService.one(id).one('profile-pic').get();
     }
 
+    updatePassword(id, password) {
+        return this.restService.one(id).one('change-password').customPUT({password: password});
+    }
+
 }

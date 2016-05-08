@@ -1,0 +1,48 @@
+<div layout="column" flex ng-controller="CategoryUploadController as categoryUploadController"
+     ng-init="categoryUploadController.init(categoryFormController.model._id);">
+    <div flex="2">
+        <h2 class="md-title left-padding">Images</h2>
+        <md-divider></md-divider>
+    </div>
+    <md-card-content flex="90" layout="column">
+        <md-progress-linear md-mode="indeterminate" ng-show="categoryUploadController.isBusy"></md-progress-linear>
+        <md-grid-list flex md-cols="9" md-cols-xs="9" md-row-height="4:3" md-gutter="10px" ng-if="categoryUploadController.listFiles.length">
+            <md-grid-tile
+                    md-rowspan="1" md-colspan="1"
+                    ng-repeat="file in categoryUploadController.listFiles"
+                    ng-click="categoryUploadController.openImage(file, $event)"
+                    ng-style="::{ 'background-image': 'url(' + categoryUploadController.viewFile(file) + ')', 'background-size' : 'cover', 'cursor':'pointer' }"
+                    layout-padding="10">
+                <div class="img-wrap">
+                    <md-button class="md-icon-button md-warn md-img-remove" aria-label="More"
+                               ng-click="categoryUploadController.deleteFile(file, $event)">
+                        <md-icon md-font-icon="zmdi zmdi-close-circle"></md-icon>
+                    </md-button>
+                </div>
+
+            </md-grid-tile>
+        </md-grid-list>
+        <div ng-if="!categoryUploadController.listFiles.length">
+            No images found
+        </div>
+
+    </md-card-content>
+    <div flex="1">
+        <md-divider></md-divider>
+        <div flex layout="row" layout-align="end end">
+            <md-button class="md-primary md-raised"
+                       ngf-select="categoryUploadController.uploadFiles($files, $invalidFiles)"
+                       ngf-multiple="true" aria-label="upload" ng-disabled="categoryUploadController.isBusy">
+                <md-icon md-font-icon
+                         ng-class="{ 'zmdi zmdi-cloud-upload': categoryUploadController.isBusy === false, 'fa fa-spinner fa-pulse': categoryUploadController.isBusy === true}">
+                </md-icon>
+                Upload
+            </md-button>
+            <md-button class="md-raised md-warn" ng-click="categoryUploadController.getFiles()">
+                <md-icon md-font-icon="zmdi zmdi-refresh">
+                </md-icon>
+                Refresh
+            </md-button>
+        </div>
+    </div>
+</div>

@@ -6,7 +6,7 @@ export class AmmaBaseFormController extends AmmaBaseController {
     protected $mdToast;
 
     public brands;
-    public model = {};
+    public model:any = {};
     public isNew = false;
 
     /* @ngInject */

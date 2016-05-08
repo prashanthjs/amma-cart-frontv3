@@ -1,0 +1,23 @@
+<section class="overlay-10 padded-content-page overflow-hidden full-height" layout="column">
+
+    <md-toolbar class="toolbar-default margin-bottom-30">
+        <div class="md-toolbar-tools">
+            <h2>
+                <span>Manage Roles</span>
+            </h2>
+        </div>
+    </md-toolbar>
+
+    <div kendo-grid="roleListController.grid" flex class="md-whiteframe-z1 "
+         options="roleListController.gridOptions" k-rebind="roleListController.gridOptions">
+    </div>
+
+
+
+</section>
+<div class="bottom-right">
+    <md-button class="md-fab md-warn"
+               aria-label="Create Store" ng-click="roleListController.openForm(null, $event)">
+        <md-icon md-font-icon="zmdi zmdi-plus"></md-icon>
+    </md-button>
+</div>

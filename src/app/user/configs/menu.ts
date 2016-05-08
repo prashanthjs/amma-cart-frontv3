@@ -7,12 +7,12 @@ export const menu = [
         children: [
             {
                 name: 'MENU.USER.MANAGE-USER',
-                state: 'triangular.admin-default.user',
+                state: 'amma.admin-default.user',
                 type: 'link'
             },
             {
                 name: 'MENU.USER.CREATE-USER',
-                state: 'triangular.admin-default.user-create',
+                state: 'amma.admin-default.user-create',
                 type: 'link'
             }
 

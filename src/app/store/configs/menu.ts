@@ -7,12 +7,12 @@ export const menu = [
         children: [
             {
                 name: 'MENU.STORE.MANAGE-STORE',
-                state: 'triangular.admin-default.store',
+                state: 'amma.admin-default.store',
                 type: 'link'
             },
             {
                 name: 'MENU.STORE.CREATE-STORE',
-                state: 'triangular.admin-default.store-create',
+                state: 'amma.admin-default.store-create',
                 type: 'link'
             }
 

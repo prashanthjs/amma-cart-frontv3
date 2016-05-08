@@ -4,6 +4,7 @@ import {AppLanguages} from './configs/app-languages';
 import {googleChartApiConfig} from './configs/google-chart-api-config';
 import { Config } from './config';
 import {Run} from './run';
+import {ToolbarController} from "./controllers/toolbar.controller";
 
 
 
@@ -17,6 +18,7 @@ module ammaCart {
       'url': 'http://localhost:5555'
     })
     .config(Config)
+      .controller('ToolbarController', ToolbarController)
     .value('googleChartApiConfig', googleChartApiConfig)
     .run(Run);
 }

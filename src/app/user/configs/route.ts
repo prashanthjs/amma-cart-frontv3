@@ -1,11 +1,11 @@
 export const route = {
-    'triangular.admin-default.user': {
+    'amma.admin-default.user': {
         url: '/users',
         templateUrl: 'app/user/views/list.html',
         controller: 'UserListController',
         controllerAs: 'userListController'
     },
-    'triangular.admin-default.user-create': {
+    'amma.admin-default.user-create': {
         url: '/users/create',
         templateUrl: 'app/user/views/form.html',
         controller: 'UserFormController',
@@ -13,10 +13,16 @@ export const route = {
         resolve: {
             model: function () {
                 return null;
+            },
+            roles: function(roleRestService){
+                return roleRestService.getList();
+            },
+            stores: function (storeRestService) {
+                return storeRestService.getList();
             }
         }
     },
-    'triangular.admin-default.user-edit': {
+    'amma.admin-default.user-edit': {
         url: '/users/:id/edit',
         templateUrl: 'app/user/views/form.html',
         controller: 'UserFormController',
@@ -24,6 +30,12 @@ export const route = {
         resolve: {
             model: function (userRestService, $stateParams) {
                 return userRestService.getById($stateParams.id);
+            },
+            roles: function(roleRestService){
+                return roleRestService.getList();
+            },
+            stores: function (storeRestService) {
+                return storeRestService.getList();
             },
             breadCrumbs: function (triBreadcrumbsService, $stateParams) {
                 triBreadcrumbsService.reset();
@@ -34,7 +46,7 @@ export const route = {
             }
         }
     },
-    'triangular.admin-default.user-view': {
+    'amma.admin-default.user-view': {
         url: '/users/:id/view',
         templateUrl: 'app/user/views/view.html',
         controller: 'UserViewController',

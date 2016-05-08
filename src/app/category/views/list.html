@@ -1,0 +1,21 @@
+<section class="overlay-10 padded-content-page overflow-hidden full-height" layout="column">
+
+    <md-toolbar class="toolbar-default margin-bottom-30">
+        <div class="md-toolbar-tools">
+            <h2>
+                <span>Manage Categories</span>
+            </h2>
+        </div>
+    </md-toolbar>
+
+    <div kendo-grid="categoryListController.grid" flex class="md-whiteframe-z1 "
+         options="categoryListController.gridOptions" k-rebind="categoryListController.gridOptions">
+    </div>
+
+    <div class="bottom-right">
+        <md-button class="md-fab md-warn"
+                   aria-label="Create Category" ui-sref="amma.admin-default.category-create">
+            <md-icon md-font-icon="zmdi zmdi-plus"></md-icon>
+        </md-button>
+    </div>
+</section>

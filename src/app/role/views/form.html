@@ -1,0 +1,64 @@
+<md-dialog aria-label="role form" ng-cloak flex>
+
+    <form name="roleForm" novalidate flex="66">
+
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2 ng-if="roleFormController.isNew">Create Role</h2>
+                <h2 ng-if="!roleFormController.isNew">Edit Role</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="roleFormController.cancel()">
+                    <md-icon md-font-icon="zmdi zmdi-close"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <section layout="row">
+
+                        <md-input-container class="md-block" flex="50">
+                            <label>Role</label>
+                            <input type="text" ng-model="roleFormController.model._id" name="name"
+                                   required ng-readonly="!roleFormController.isNew"/>
+                            <div ng-messages="roleForm.name.$error">
+                                <div ng-message="required">
+                                    Please enter role name of the brand
+                                </div>
+                            </div>
+                        </md-input-container>
+                        <div flex="30"></div>
+                        <md-input-container class="md-block" flex="30">
+                            <md-switch class="md-primary margin-0"
+                                       ng-model="roleFormController.model.isLocked"
+                                       aria-label="isLocked?">Is Locked
+                            </md-switch>
+
+                        </md-input-container>
+                </section>
+
+                <section layout="column">
+                        <h2>Privileges</h2>
+                        <div layout="row">
+                            <md-input-container class="md-block" flex="33"
+                                                ng-repeat="privilege in roleFormController.privileges">
+
+                                <md-checkbox ng-checked="roleFormController.model.privileges.indexOf(privilege) > -1"
+                                             value="{{privilege}}"
+                                             ng-click="roleFormController.togglePrivilege(privilege)">
+                                    {{privilege}}
+                                </md-checkbox>
+                            </md-input-container>
+                        </div>
+
+                </section>
+
+                <section>
+                    <div class="button-toolbar" layout="row" layout-align="end center">
+                        <md-button class="md-primary md-raised" ng-click="roleFormController.submit($event)" ng-disabled="roleForm.$invalid">Save</md-button>
+                        <md-button ng-click="roleFormController.cancel()">Cancel</md-button>
+                    </div>
+                </section>
+            </div>
+        </md-dialog-content>
+    </form>
+</md-dialog>

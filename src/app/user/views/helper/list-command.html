@@ -5,21 +5,28 @@
         </md-button>
         <md-menu-content width="3">
             <md-menu-item>
-                <md-button aria-label="View" ui-sref="triangular.admin-default.user-view({id: dataItem._id})">
+                <md-button aria-label="View" ui-sref="amma.admin-default.user-view({id: dataItem._id})">
                     <md-icon md-font-icon="fa fa-expand"></md-icon>
                     View
                 </md-button>
             </md-menu-item>
             <md-menu-item>
-                <md-button aria-label="Edit" ui-sref="triangular.admin-default.user-edit({id: dataItem._id})">
+                <md-button aria-label="Edit" ui-sref="amma.admin-default.user-edit({id: dataItem._id})">
                     <md-icon md-font-icon="fa fa-edit"></md-icon>
                     Edit
                 </md-button>
             </md-menu-item>
-            <md-menu-item>
+            <md-menu-item ng-if="!dataItem.isLocked">
                 <md-button aria-label="Delete" ng-click="userListController.deleteItem(dataItem, $event)">
                     <md-icon md-font-icon="fa fa-times"></md-icon>
                     Delete
+                </md-button>
+            </md-menu-item>
+
+            <md-menu-item>
+                <md-button aria-label="Change password" ng-click="userListController.changePassword(dataItem, $event)">
+                    <md-icon md-font-icon="fa fa-lock"></md-icon>
+                    Change password
                 </md-button>
             </md-menu-item>
         </md-menu-content>
