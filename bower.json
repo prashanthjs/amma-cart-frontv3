@@ -2,68 +2,18 @@
   "name": "ammaCartFrontv3",
   "version": "0.0.0",
   "dependencies": {
-    "angular": "~1.5.0",
-    "angular-animate": "~1.4.2",
-    "angular-cookies": "~1.4.2",
-    "angular-touch": "~1.4.2",
-    "angular-sanitize": "~1.4.2",
-    "angular-messages": "~1.4.2",
-    "angular-aria": "~1.4.2",
-    "jquery": "~2.1.4",
+    "triangular": "git@github.com:oxygenna/triangular-bower.git#~2.7.1",
     "restangular": "~1.5.1",
-    "angular-ui-router": "~0.2.15",
-    "angular-material": "~0.11.2",
-    "material-design-iconfont": "~0.0.2",
-    "malarkey": "yuanqing/malarkey#~1.3.1",
-    "angular-toastr": "~1.5.0",
-    "moment": "~2.10.6",
-    "animate.css": "~3.4.0",
-    "triangular": "git@github.com:oxygenna/triangular-bower.git#~2.5.0",
     "kendo-ui": "git@bitbucket.org:prashanthp/kendo-ui.git",
-    "api-check": "~7.5.5",
-    "angular-schema-form": "~0.8.12",
-    "angular-schema-form-material": "Textalk/angular-schema-form-material",
-    "lodash": "3.10.1",
-    "angular-google-maps": "~2.3.0",
     "async": "^1.5.2",
     "angular-password": "^1.0.1"
   },
-  "devDependencies": {
-    "angular-mocks": "~1.4.2"
-  },
   "overrides": {
-    "angular-material": {
+    "triangular": {
       "main": [
-        "angular-material.js",
-        "angular-material.scss"
-      ]
-    },
-    "weather-icons": {
-      "main": [
-        "./css/weather-icons.css",
-        "./font/*"
-      ]
-    },
-    "angular-dragula": {
-      "main": [
-        "dist/angular-dragula.js",
-        "dist/dragula.min.css"
-      ]
-    },
-    "ng-file-upload": {
-      "main": [
-        "ng-file-upload-shim.js",
-        "ng-file-upload.js"
-      ]
-    },
-    "angular-schema-form": {
-      "main": [
-        "dist/schema-form.js"
+        "triangular.min.js",
+        "triangular.scss"
       ]
     }
-  },
-  "resolutions": {
-    "angular": "~1.5.0",
-    "angular-material": "1.0.1"
   }
 }

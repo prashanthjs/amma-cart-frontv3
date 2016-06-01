@@ -43,6 +43,9 @@
     },
     "moment/moment-node.d.ts": {
       "commit": "bb051830df88f5a55dcf06b7fe85bf6b62cc97f2"
+    },
+    "async/async.d.ts": {
+      "commit": "6052959591c9bc6f8463c58220965c7030ba934d"
     }
   }
 }
